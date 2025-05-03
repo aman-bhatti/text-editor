@@ -15,7 +15,10 @@ impl View {
             if current_row == height / 3 {
                 Self::draw_welcome_message()?;
             } else {
-                Terminal::print("~\r\n")?;
+                Self::draw_empty_row()?;
+            }
+            if current_row.saturating_add(1) {
+                Terminal::print("\r\n")?;
             }
         }
         Ok(())
